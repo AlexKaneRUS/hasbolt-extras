@@ -16,7 +16,7 @@ module Database.Bolt.Extras.Query.Queries
 import           Control.Monad                        (forM)
 import           Control.Monad.IO.Class               (MonadIO)
 import           Data.Map.Strict                      (toList, (!))
-import qualified Data.Text                            as T (Text, pack, concat)
+import qualified Data.Text                            as T (Text, concat, pack)
 import           Database.Bolt                        (BoltActionT, Node (..),
                                                        Record, RecordValue (..),
                                                        Relationship (..),
@@ -35,13 +35,13 @@ import           Text.Printf                          (printf)
 -- several 'Node's, then the result can be not one but several 'Node's.
 --
 
-data UploadTypedNode = BoltId BoltId | Merge Node | Create Node
+data PutNode = BoltId BoltId | Merge Node | Create Node
   deriving (Show)
 
-getNode :: UploadTypedNode -> Node
-getNode (Merge node)  = node
-getNode (Create node) = node
-getNode (BoltId _)    = undefined
+putNodeToNode :: PutNode -> Node
+putNodeToNode (Merge node)  = node
+putNodeToNode (Create node) = node
+putNodeToNode (BoltId _)    = undefined
 
 uploadNode :: (MonadIO m) => UploadTypedNode -> BoltActionT m [BoltId]
 uploadNode ut = case ut of

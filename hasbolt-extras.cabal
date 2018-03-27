@@ -24,7 +24,12 @@ source-repository head
 library
   hs-source-dirs:   src
   exposed-modules:  
-  other-modules:    Database.Bolt.Extras.Persisted
+  other-modules:    Database.Bolt.Extras.Query.Put
+                  , Database.Bolt.Extras.Query.Utils
+                  
+                    Database.Bolt.Extras.Query.Cypher
+                  
+                  , Database.Bolt.Extras.Persisted
   
                   , Database.Bolt.Extras.Utils
                   
@@ -34,6 +39,8 @@ library
                   , Database.Bolt.Extras.Template.Types
                   , Database.Bolt.Extras.Template.Instances
                   , Database.Bolt.Extras.Template.Converters
+                  
+                  , Database.Bolt.Id
                   
   build-depends:    base >=4.7 && <5
                   , text
