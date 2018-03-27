@@ -2,7 +2,13 @@
 {-# LANGUAGE DeriveGeneric   #-}
 {-# LANGUAGE TemplateHaskell #-}
 
-module Database.Bolt.Extras.Persisted where
+module Database.Bolt.Extras.Persisted
+  (
+    BoltId
+  , Persisted (..)
+  , GetBoltId (..)
+  , fromInt
+  ) where
 
 import           Database.Bolt              (Node (..), Relationship (..),
                                              URelationship (..))
