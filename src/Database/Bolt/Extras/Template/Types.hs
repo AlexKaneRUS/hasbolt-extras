@@ -1,17 +1,17 @@
 module Database.Bolt.Extras.Template.Types
   (
-    Label
-  , Property
+    FromValue (..)
+  , Label
+  , Labels (..)
   , Node (..)
   , NodeLike (..)
-  , URelationLike (..)
-  , ToValue (..)
-  , FromValue (..)
-  , Value (..)
-  , Relationship (..)
-  , URelationship (..)
   , Properties (..)
-  , Labels (..)
+  , Property
+  , Relationship (..)
+  , ToValue (..)
+  , URelationLike (..)
+  , URelationship (..)
+  , Value (..)
   ) where
 
 import           Data.Map.Strict (Map)

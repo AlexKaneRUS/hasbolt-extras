@@ -1,9 +1,31 @@
 module Database.Bolt.Extras.Template
-  (
-    module Database.Bolt.Extras.Template.Types
-  , module Database.Bolt.Extras.Template.Converters
+  ( FromValue (..)
+  , Label
+  , Labels (..)
+  , Node (..)
+  , NodeLike (..)
+  , Properties (..)
+  , Property
+  , Relationship (..)
+  , ToValue (..)
+  , URelationLike (..)
+  , URelationship (..)
+  , Value (..)
+  , makeNodeLike
+  , makeURelationLike
   ) where
 
-import           Database.Bolt.Extras.Template.Converters
+import           Database.Bolt.Extras.Template.Converters (makeNodeLike,
+                                                           makeURelationLike)
 import           Database.Bolt.Extras.Template.Instances  ()
-import           Database.Bolt.Extras.Template.Types
+import           Database.Bolt.Extras.Template.Types      (FromValue (..),
+                                                           Label, Labels (..),
+                                                           Node (..),
+                                                           NodeLike (..),
+                                                           Properties (..),
+                                                           Property,
+                                                           Relationship (..),
+                                                           ToValue (..),
+                                                           URelationLike (..),
+                                                           URelationship (..),
+                                                           Value (..))

@@ -4,8 +4,9 @@
 {-# LANGUAGE TemplateHaskell   #-}
 
 module Database.Bolt.Extras.Query.Put
-    ( GraphPurResult
-    , GraphPutRequest
+    ( GraphPutRequest
+    , GraphPutResponse
+    , PutNode (..)
     , putGraph
     ) where
 
@@ -19,9 +20,9 @@ import           Database.Bolt                     (BoltActionT, Node (..),
                                                     URelationship (..), at,
                                                     exact, query)
 import           Database.Bolt.Extras.Graph        (Graph (..))
+import           Database.Bolt.Extras.Persisted    (BoltId, fromInt)
 import           Database.Bolt.Extras.Query.Cypher (ToCypher (..))
 import           Database.Bolt.Extras.Query.Utils  (NodeName)
-import           Database.Bolt.Id                  (BoltId (..), fromInt)
 import           NeatInterpolation                 (text)
 
 -- | For given @Node _ labels nodeProps@ makes query @MERGE (n:labels {props}) RETURN ID(n) as n@
@@ -70,8 +71,8 @@ putRelationship start URelationship{..} end = do
     varQ = "r"
     labelQ = toCypher urelType
     propsQ = toCypher . toList $ urelProps
-    startT = T.pack . show . boltId $ start
-    endT = T.pack . show . boltId $ end
+    startT = T.pack . show $ start
+    endT = T.pack . show $ end
 
     mergeQ :: T.Text
     mergeQ = [text|MATCH (a), (b)

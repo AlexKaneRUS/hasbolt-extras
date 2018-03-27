@@ -1,5 +1,5 @@
 name:           hasbolt-extras
-version:        0.0.0.1
+version:        0.0.0.2
 synopsis:       Extras for hasbolt library
 description:    Extras for hasbolt library
 homepage:       https://github.com/biocad/hasbolt-extras#readme
@@ -22,34 +22,31 @@ source-repository head
   location: https://github.com/biocad/hasbolt-extras
 
 library
-  hs-source-dirs:   src
-  exposed-modules:  
-  other-modules:    Database.Bolt.Extras.Query.Put
-                  , Database.Bolt.Extras.Query.Utils
+  hs-source-dirs:      src
+  exposed-modules:     Database.Bolt.Extras.Graph
+                     , Database.Bolt.Extras.Persisted
+                     , Database.Bolt.Extras.Query
+                     , Database.Bolt.Extras.Template
+  other-modules:       Database.Bolt.Extras.Query.Get
+                     , Database.Bolt.Extras.Query.Put
+                     , Database.Bolt.Extras.Query.Utils
                   
-                    Database.Bolt.Extras.Query.Cypher
-                  
-                  , Database.Bolt.Extras.Persisted
+                       Database.Bolt.Extras.Query.Cypher
   
-                  , Database.Bolt.Extras.Utils
+                     , Database.Bolt.Extras.Utils
                   
-                  , Database.Bolt.Extras.Graph
-  
-                  , Database.Bolt.Extras.Template
-                  , Database.Bolt.Extras.Template.Types
-                  , Database.Bolt.Extras.Template.Instances
-                  , Database.Bolt.Extras.Template.Converters
+                     , Database.Bolt.Extras.Template.Types
+                     , Database.Bolt.Extras.Template.Instances
+                     , Database.Bolt.Extras.Template.Converters
                   
-                  , Database.Bolt.Id
-                  
-  build-depends:    base >=4.7 && <5
-                  , text
-                  , hasbolt
-                  , containers
-                  , neat-interpolation
-                  , template-haskell
-                  , th-lift-instances
-                  , lens
-                  , data-default
+  build-depends:       base >=4.7 && <5
+                     , text
+                     , hasbolt
+                     , containers
+                     , neat-interpolation
+                     , template-haskell
+                     , th-lift-instances
+                     , lens
+                     , data-default
   ghc-options:     -Wall -O2
   default-language: Haskell2010
